@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_i18n/flutter_i18n.dart';
+import 'package:oktoast/oktoast.dart';
 
 import '../routes/paths.dart';
 
@@ -16,24 +18,50 @@ class _LoginPageState extends State<LoginPage> {
   TextEditingController verification = TextEditingController();
   bool status = true;
 
-  as(){
-    verification.text = iphone.text;
-    AlertDialog(actions: <Widget>[Expanded(child: Text('data'),)],);
-    StepState(){
-      AlertDialog(actions: <Widget>[Expanded(child: Text('data'),)],);
-    }
+  Locale _currentLang;
 
-    //Navigator.of(context).pushNamed('/shared_preferences');
-    Navigator.popAndPushNamed(context, exmaple_list);
-    /*Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (context) => SharedPreferencesDemo(),
-      ),
-    );*/
+  @override
+  void initState() {
+    super.initState();
+
+    new Future.delayed(Duration.zero, () async {
+      setState(() {
+        _currentLang = FlutterI18n.currentLocale(context);
+      });
+    });
   }
-  statusclick(){
+
+  as() {    
+    verification.text = iphone.text;
+    AlertDialog(
+      actions: <Widget>[
+        Expanded(
+          child: Text('data'),
+        )
+      ],
+    );
+    StepState() {
+      AlertDialog(
+        actions: <Widget>[
+          Expanded(
+            child: Text('data'),
+          )
+        ],
+      );
+    }
+  }
+
+  statusclick() {
     setState(() {
       status = !status;
+    });
+  }
+
+  Future<void> _toExamplesList() async {
+    showToast(FlutterI18n.translate(context, "label.toast.test_message"));
+    
+    await Future<void>.delayed(Duration(seconds: 2),(){
+      Navigator.popAndPushNamed(context, exmaple_list);
     });
   }
 
@@ -46,10 +74,8 @@ class _LoginPageState extends State<LoginPage> {
       body: Container(
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("images/bg@2x.png"),
-                  fit: BoxFit.cover
-              )
-          ),
+                  image: AssetImage("assets/images/bg@2x.png"),
+                  fit: BoxFit.cover)),
           // child:Container(
           // color: Color.fromRGBO(255, 113, 55, 1),
           // ),
@@ -61,10 +87,11 @@ class _LoginPageState extends State<LoginPage> {
               child: Container(
                 decoration: BoxDecoration(
                     color: Colors.white,
-                    borderRadius: BorderRadius.only(topLeft: Radius.circular(32),topRight: Radius.circular(32))
-                ),
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(32),
+                        topRight: Radius.circular(32))),
                 child: Padding(
-                  padding: EdgeInsets.only(left: 23,top: 65,right: 23),
+                  padding: EdgeInsets.only(left: 23, top: 65, right: 23),
                   child: Flex(
                     direction: Axis.vertical,
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -74,7 +101,7 @@ class _LoginPageState extends State<LoginPage> {
                         // child: Align(
                         // alignment: Alignment.topLeft,
                         child: Text(
-                          'Welcome back！',
+                          FlutterI18n.translate(context, "label.main.greeting"),//'''Welcome back！',
                           textDirection: TextDirection.ltr,
                           textAlign: TextAlign.left,
                           style: TextStyle(
@@ -86,7 +113,7 @@ class _LoginPageState extends State<LoginPage> {
                         // ),
                       ),
                       Container(
-                        margin: EdgeInsets.only(top: 28,bottom: 24),
+                        margin: EdgeInsets.only(top: 28, bottom: 24),
                         height: 40,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(40),
@@ -102,16 +129,15 @@ class _LoginPageState extends State<LoginPage> {
                               height: 120,
                               decoration: BoxDecoration(
                                   image: DecorationImage(
-                                      image: AssetImage('images/mobile.png')
-                                  )
-                              ),
+                                      image: AssetImage(
+                                          'assets/images/mobile.png'))),
                             ),
                             Expanded(
                               flex: 1,
                               child: TextField(
                                 controller: iphone,
                                 decoration: InputDecoration(
-                                  hintText: '手机号',
+                                  hintText: FlutterI18n.translate(context, "label.hint.mobile"),//'手机号',
                                   border: InputBorder.none,
                                 ),
                               ),
@@ -136,9 +162,8 @@ class _LoginPageState extends State<LoginPage> {
                               height: 120,
                               decoration: BoxDecoration(
                                   image: DecorationImage(
-                                      image: AssetImage('images/captcha.png')
-                                  )
-                              ),
+                                      image: AssetImage(
+                                          'assets/images/captcha.png'))),
                             ),
                             Expanded(
                               flex: 1,
@@ -146,13 +171,16 @@ class _LoginPageState extends State<LoginPage> {
                                 controller: verification,
                                 obscureText: !status,
                                 decoration: InputDecoration(
-                                  hintText: status?'验证码':'密码',
+                                  hintText: status ?
+                                        FlutterI18n.translate(context, "label.hint.captcha")//'验证码'
+                                      : FlutterI18n.translate(context, "label.hint.password")//'密码'
+                                  ,
                                   border: InputBorder.none,
                                 ),
                               ),
                             ),
                             Container(
-                                width: status?123:0,
+                                width: status ? 123 : 0,
                                 height: 52,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(52),
@@ -161,12 +189,11 @@ class _LoginPageState extends State<LoginPage> {
                                       BoxShadow(
                                         color: Color.fromRGBO(255, 113, 56, 1),
                                       )
-                                    ]
-                                ),
-                                child:GestureDetector(
+                                    ]),
+                                child: GestureDetector(
                                   onTap: as,
                                   child: Text(
-                                    '发送验证码',
+                                    FlutterI18n.translate(context, "button.label.send_captcha"),//'发送验证码'
                                     textDirection: TextDirection.ltr,
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
@@ -176,8 +203,7 @@ class _LoginPageState extends State<LoginPage> {
                                       height: 2,
                                     ),
                                   ),
-                                )
-                            ),
+                                )),
                           ],
                         ),
                       ),
@@ -185,23 +211,24 @@ class _LoginPageState extends State<LoginPage> {
                         child: Row(
                           children: <Widget>[
                             Expanded(
-                                child:GestureDetector(
-                                  onTap:statusclick,
-                                  child: Text(
-                                    status?'账号密码登录':'验证码登录',
-                                    textDirection: TextDirection.ltr,
-                                    textAlign: TextAlign.left,
-                                    style: TextStyle(
-                                      fontSize: 16,
-                                      color: Color.fromRGBO(255, 153, 107, 1),
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                )
-                            ),
+                                child: GestureDetector(
+                              onTap: statusclick,
+                              child: Text(
+                                status ? FlutterI18n.translate(context, "label.main.tip.login_with_password")//'账号密码登录'
+                                : FlutterI18n.translate(context, "label.main.tip.login_with_captcha"),//'验证码登录'
+                                textDirection: TextDirection.ltr,
+                                textAlign: TextAlign.left,
+                                style: TextStyle(
+                                  fontSize: 16,
+                                  color: Color.fromRGBO(255, 153, 107, 1),
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            )),
                             Expanded(
                               child: Text(
-                                status?'':'忘记密码？',
+                                status ? '' :
+                                FlutterI18n.translate(context, "label.main.tip.forget_password"),//'忘记密码？'
                                 textDirection: TextDirection.ltr,
                                 textAlign: TextAlign.right,
                                 style: TextStyle(
@@ -217,7 +244,7 @@ class _LoginPageState extends State<LoginPage> {
                       Container(
                         margin: EdgeInsets.only(top: 90),
                         child: Text(
-                          '其他登录方式',
+                          FlutterI18n.translate(context, "label.main.tip.login_with_3rd_part"),//'其他登录方式'
                           textDirection: TextDirection.ltr,
                           textAlign: TextAlign.center,
                           style: TextStyle(
@@ -231,8 +258,12 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-          )
-      ),
+          )),
+          floatingActionButton: FloatingActionButton(
+            onPressed: _toExamplesList,
+            tooltip: 'Increment',
+            child: const Icon(Icons.help),
+          ),
     );
   }
 }

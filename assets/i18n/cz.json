@@ -1,0 +1,27 @@
+{
+  "title": "乐享课 app",
+  "label": {
+    "main":{
+      "greeting": "欢迎回来",
+      "tip": {
+        "login_with_password": "账号密码登录",
+        "login_with_captcha": "验证码登录",
+        "login_with_3rd_part": "验证码登录",
+        "forget_password": "忘记密码？"
+      }
+    },
+    "hint": {
+      "mobile": "手机号",
+      "captcha": "验证码",
+      "password": "密码"
+    },
+    "toast": {
+      "test_message": "我将会在2秒后跳转到例子列表。"
+    }
+  },
+  "button": {
+    "label": {
+      "send_captcha": "发送验证码"
+    }
+  }
+}

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:lxk/routes/routes.dart';
+//import 'package:lxk/routes/routes.dart';
 import 'package:lxk/routes/paths.dart';
 
 import 'package:lxk/pages/examples/shared_preferences.dart';
@@ -21,6 +21,14 @@ class _ExamplesListPageState extends State<ExamplesListPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
+        leading: InkWell(
+          onTap: () {
+            Navigator.popAndPushNamed(context, log_in);
+          },
+          child: Icon(
+            Icons.arrow_back,
+          ),
+        ),
       ),
       body: new Container(
         child: new ListView.builder(
