@@ -26,6 +26,16 @@ dependencies:
   shared_preferences: ^0.5.6
   flutter_i18n: ^0.8.3
   oktoast: ^2.3.0
+  geolocator: ^5.1.5
+  connectivity: ^0.4.6+2
+  url_launcher: ^5.4.1
+  dio: ^3.0.8
+  dio_cookie_manager: ^1.0.0
+  cookie_jar: ^1.0.0
+  image_picker: ^0.6.2
+  file_picker: ^1.4.2
+  chewie: ^0.9.8
+  video_player: ^0.10.5
 
 dev_dependencies:
   flutter_test:

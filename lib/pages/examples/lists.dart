@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:lxk/routes/paths.dart';
 
 import 'package:lxk/pages/examples/shared_preferences.dart';
+import 'package:lxk/pages/examples/geo_locator.dart';
+import 'package:lxk/pages/examples/network_connectivity.dart';
+import 'package:lxk/pages/examples/url_launcher.dart';
+import 'package:lxk/pages/examples/image_picker.dart';
 
 class ExamplesListPage extends StatefulWidget {
   ExamplesListPage({Key key, this.title}) : super(key: key);
@@ -61,9 +65,17 @@ class _ExamplesListPageState extends State<ExamplesListPage> {
 
 //example routes
 Map<String, Widget> example_routers = {
-  shared_preferences: new SharedPreferencesDemo(),
+  shared_preferences: new SharedPreferencesPage(),
+  geo_locator: new GeolocatorPage(),
+  network_connectivity: new NetworkConnectivityPage(title:'Network Connectivity'),
+  url_launcher: new UrlLauncherPage(title:'URL Launcher'),
+  image_picker: new ImagePickerPage(),
 };
 
 const example_names = [
-  "本地缓存 例子"
+  "本地缓存 例子",
+  "移动端定位 例子",
+  "检查移动端网络连接 例子",
+  "打开URL/发短信/打电话  例子",
+  "移动端图片(imge_picker) 例子"
 ];

@@ -9,8 +9,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'package:lxk/routes/paths.dart';
-
 /*void main() {
   runApp(MyApp());
 }*/
@@ -25,14 +23,14 @@ import 'package:lxk/routes/paths.dart';
   }
 }*/
 
-class SharedPreferencesDemo extends StatefulWidget {
-  SharedPreferencesDemo({Key key}) : super(key: key);
+class SharedPreferencesPage extends StatefulWidget {
+  SharedPreferencesPage({Key key}) : super(key: key);
 
   @override
-  SharedPreferencesDemoState createState() => SharedPreferencesDemoState();
+  _SharedPreferencesPageState createState() => _SharedPreferencesPageState();
 }
 
-class SharedPreferencesDemoState extends State<SharedPreferencesDemo> {
+class _SharedPreferencesPageState extends State<SharedPreferencesPage> {
   Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
   Future<int> _counter;
 
