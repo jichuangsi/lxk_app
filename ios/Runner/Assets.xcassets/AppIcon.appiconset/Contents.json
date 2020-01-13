@@ -15,7 +15,7 @@
     {
       "size" : "29x29",
       "idiom" : "iphone",
-      "filename" : "lxk_launcher-20x20.png",
+      "filename" : "lxk_launcher-20x20@1x.png",
       "scale" : "1x"
     },
     {
@@ -57,7 +57,7 @@
     {
       "size" : "20x20",
       "idiom" : "ipad",
-      "filename" : "lxk_launcher-20x20.png",
+      "filename" : "lxk_launcher-20x20@1x.png",
       "scale" : "1x"
     },
     {
@@ -69,7 +69,7 @@
     {
       "size" : "29x29",
       "idiom" : "ipad",
-      "filename" : "lxk_launcher-29x29.png",
+      "filename" : "lxk_launcher-29x29@1x.png",
       "scale" : "1x"
     },
     {
@@ -81,7 +81,7 @@
     {
       "size" : "40x40",
       "idiom" : "ipad",
-      "filename" : "lxk_launcher-40x40.png",
+      "filename" : "lxk_launcher-40x40@1x.png",
       "scale" : "1x"
     },
     {
@@ -93,7 +93,7 @@
     {
       "size" : "76x76",
       "idiom" : "ipad",
-      "filename" : "lxk_launcher-76x76.png",
+      "filename" : "lxk_launcher-76x76@1x.png",
       "scale" : "1x"
     },
     {
