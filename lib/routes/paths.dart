@@ -1,7 +1,10 @@
 const root = '/';
 const log_in = '/log_in';
+const register = 'register';
+const reset = 'reset';
 
 
+const agreement = 'agreement';
 
 //exmaple list paths
 const exmaple_list = '/exmaple_list';

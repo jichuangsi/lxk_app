@@ -6,14 +6,17 @@
       "tip": {
         "login_with_password": "账号密码登录",
         "login_with_captcha": "验证码登录",
-        "login_with_3rd_part": "验证码登录",
-        "forget_password": "忘记密码？"
+        "login_with_3rd_part": "其他登录方式",
+        "forget_password": "忘记密码？",
+        "true": "同意",
+        "rule": "《用户协议》"
       }
     },
     "hint": {
       "mobile": "手机号",
       "captcha": "验证码",
-      "password": "密码"
+      "password": "密码",
+      "user": "昵称"
     },
     "toast": {
       "test_message": "我将会在2秒后跳转到例子列表。"
@@ -21,7 +24,11 @@
   },
   "button": {
     "label": {
-      "send_captcha": "发送验证码"
+      "send_captcha": "发送验证码",
+      "login": "登录",
+      "register": "注册",
+      "next": "下一步",
+      "reset": "重置"
     }
   }
 }
