@@ -14,7 +14,8 @@ Future<void> main() async {
       useCountryCode: false,
       fallbackFile: 'cn',
       path: 'assets/i18n',
-      forcedLocale: new Locale('cz'));
+      //forcedLocale: new Locale('zh')
+  );
   WidgetsFlutterBinding.ensureInitialized();
   await flutterI18nDelegate.load(null);
 
